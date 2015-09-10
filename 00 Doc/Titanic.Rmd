@@ -1,5 +1,5 @@
 ---
-title: "titanicAnalysis"
+title: "Titanic Analysis"
 output: html_document
 ---
 
