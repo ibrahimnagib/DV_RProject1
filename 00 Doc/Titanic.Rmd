@@ -11,9 +11,32 @@ When you click the **Knit** button a document will be generated that includes bo
 source("../Rprofile.R", echo = FALSE)
 ```
 
+```{r}
+source("../01 Data/titanic_data.R", echo = TRUE)
+```
 
 ```{r}
 source("../02 Visualizations/graph1.R", echo = TRUE)
+```
+
+```{r}
+source("../02 Visualizations/graph2.R", echo = TRUE)
+```
+
+```{r}
+source("../02 Visualizations/graph3.R", echo = TRUE)
+```
+
+```{r}
+source("../02 Visualizations/graph4.R", echo = TRUE)
+```
+
+```{r}
+source("../02 Visualizations/graph5.R", echo = TRUE)
+```
+
+```{r}
+source("../02 Visualizations/graph6.R", echo = TRUE)
 ```
 
 You can also embed plots, for example:
