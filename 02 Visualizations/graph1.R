@@ -6,9 +6,7 @@ ggplot() +
   coord_cartesian() + 
   scale_x_continuous() +
   scale_y_continuous() +
-  #facet_wrap(~SURVIVED) +
-  #facet_grid(.~SURVIVED, labeller=label_both) + # Same as facet_wrap but with a label.
-  #facet_grid(PCLASS~SURVIVED, labeller=label_both) +
+
   labs(title='Titanic') +
   labs(x="Age", y=paste("Fare")) +
   layer(data=df, 
@@ -17,6 +15,6 @@ ggplot() +
         stat_params=list(), 
         geom="point",
         geom_params=list(), 
-        #position=position_identity()
+
         position=position_jitter(width=0.3, height=0)
   )

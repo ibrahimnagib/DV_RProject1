@@ -4,12 +4,10 @@ df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?que
 
 ggplot() + 
   coord_cartesian() + 
-  #scale_x_continuous() +
+
   scale_x_discrete()+
   scale_y_continuous() +
-  #facet_wrap(~SURVIVED) +
-  #facet_grid(.~SURVIVED, labeller=label_both) + # Same as facet_wrap but with a label.
-  #facet_grid(PCLASS~SURVIVED, labeller=label_both) +
+
   labs(title='Titanic') +
   labs(x="Survived", y=paste("Fare")) +
   layer(data=df, 

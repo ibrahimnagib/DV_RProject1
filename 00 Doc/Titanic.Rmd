@@ -3,43 +3,66 @@ title: "Titanic Analysis"
 output: html_document
 ---
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+#### This html page, produced by creating an R markdown document, and using KnitR to knit the file into html. The purpose of this html file, is to show our analysis of the Titanic data in the oracle database, as well as show the steps required to reproduce our findings, given the same data. The data for titanic included, the number of passengers, names, how many survived, sex, age, and how much they had paid for their fare. Given these variables, we were able to query the data base in a few different ways, to gather results, and visualize them using ggplot. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+##### Rprofile.R:
+An Rprofile.R document was created to include all of the packages required for the project, in order to avoid requiring packages in each of the R script files. Below is the call to the Rprofile document, and shows the necessary packages being loaded:
+
 
 ```{r}
 source("../Rprofile.R", echo = FALSE)
 ```
 
+#### Data:
+Below is are the summary statistics for the data on titanic, as well as "head", which displays the first 6 items in the data set.
+
 ```{r}
 source("../01 Data/titanic_data.R", echo = TRUE)
 ```
+
+#### Graph 1:
+The graph below is a visualization of age vs fare paid, vs sex. Age is placed on the x-axis as a continuous variable, fare is on the y-axis, also as a continuous variable. Sex is distributed by color, with male being green, female being red, and null being blue. The query used was: "select * from titanic ", and ggplot was used to visualize the data.
 
 ```{r}
 source("../02 Visualizations/graph1.R", echo = TRUE)
 ```
 
+#### Graph 2:
+The graph below is a visualization of age vs fare paid, vs sex. Age is placed on the x-axis as a continuous variable, fare is on the y-axis, also as a continuous variable. Sex is distributed by color, with male being blue, and female being red. The query used was: "select * from titanic where sex is not null ", and ggplot was used to visualize the data. This graph is similar to graph 1, with the main difference being that the query to the data base included "where sex is not null", which explains, why there is no null variable for sex in represented in this graph.
+
 ```{r}
 source("../02 Visualizations/graph2.R", echo = TRUE)
 ```
+
+#### Graph 3:
+The graph below is a visualization of male vs female survivors based on thier fares paid. Sex is placed on the x-axis as a discrete variable, fare is on the y-axis, as a continuous variable. Survived is distributed by color, with 1(survived) being blue, and 0(did not survive) being red. The query used was: "select * from titanic ", and ggplot was used to visualize the data.
 
 ```{r}
 source("../02 Visualizations/graph3.R", echo = TRUE)
 ```
 
+#### Graph 4:
+The graph below is a visualization of male vs female survivors based on thier fares paid. It is similar to graph 3, however, facet grid was used to further distribute the data into P class. Sex is placed on the x-axis along with Survived. Sex is also distributed by color, male being blue, and female red. The three rows of the grid represent PClass 1-3, and the two grid columns represent the discrete variable survived. The query used was: "select * from titanic ", and ggplot was used to visualize the data.
+
+
 ```{r}
 source("../02 Visualizations/graph4.R", echo = TRUE)
 ```
+
+#### Graph 5:
+The graph below is a visualization of male vs female survivors based on thier fares paid. It is identical to graph 4, however, age was limited to age <= 10. Sex is placed on the x-axis along with Survived. Sex is also distributed by color, male being blue, and female red. The three rows of the grid represent PClass 1-3, and the two grid columns represent the discrete variable survived. The query used was: "select * from titanic where age <= 10", and ggplot was used to visualize the data.
 
 ```{r}
 source("../02 Visualizations/graph5.R", echo = TRUE)
 ```
 
+#### Graph 6:
+The last graph below is a visualization of age vs male and female survivors. Age is on the y-axis, and the discrete variable, survived, is on the x-axis. Sex is represented by  color, male blue, and female red. Box plot was used to show the IQR for the respective survivors vs non-survivors age statistics. The query used was: "select * from titanic ", and ggplot was used to visualize the data.
+
 ```{r}
 source("../02 Visualizations/graph6.R", echo = TRUE)
 ```
 
-You can also embed plots, for example:
 
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
